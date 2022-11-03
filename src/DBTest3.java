@@ -39,7 +39,6 @@ public class DBTest3 {
         p.setString(3,mgr_ssn);
         p.setString(4,mgr_sdate);
 
-
         p.executeUpdate();
 
         try{
