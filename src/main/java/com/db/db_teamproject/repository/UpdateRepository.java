@@ -36,7 +36,7 @@ public class UpdateRepository {
 
                 pstmt = con.prepareStatement(sql);
 
-                pstmt.executeUpdate();z
+                pstmt.executeUpdate();
             }
 
         } catch (SQLException e){

@@ -65,11 +65,17 @@ public class SearchRepository {
                 if(check.get(5)){
                     search.setSalary(checkNull(rs.getString("e_salary")));
                 }
-                if(check.get(6)){z
+                if(check.get(6)){
                     search.setSupervisor(checkNull(rs.getString("s_fname")) + " " + checkNull(rs.getString("s_lname")));
                 }
                 if(check.get(7)){
                     search.setDepartment(checkNull(rs.getString("dname")));
+                }
+                if(check.get(8)){
+                    search.setCreated_at(checkNull(rs.getString("e_created_at")));
+                }
+                if(check.get(9)){
+                    search.setUpdated_at(checkNull(rs.getString("e_updated_at")));
                 }
                 searches.add(search);
             }
