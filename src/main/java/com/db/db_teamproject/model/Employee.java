@@ -3,10 +3,14 @@ package com.db.db_teamproject.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.NotEmpty;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 @Getter @Setter
 public class Employee {
+    SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    String timeStamp = date.format(new Date());
+
 
     // @NotEmpty(message = "Ssn은 반드시 입력해야 합니다!")
     private String ssn;
@@ -35,10 +39,11 @@ public class Employee {
                 change(sex) + ", " +
                 salary + ", " +
                 change(super_ssn) + ", " +
-                dno +
-                change(created_at)+ ", " +
-                change(updated_at)+ ", " +
-                ")"
+                dno + ", " +
+                change(timeStamp)+ ", "+
+                change(timeStamp)+
+//                change(updated_at)+ ", " +
+                ")"+';'
                 ;
     }
 
