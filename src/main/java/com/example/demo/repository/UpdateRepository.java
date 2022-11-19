@@ -23,9 +23,9 @@ public class UpdateRepository {
         try {
 
             // 접속 url과 사용자, 비밀번호
-            String url = "jdbc:mysql://localhost:3306/first_jdbc";
-            String user = "root";
-            String pwd = "root";
+            String url = "jdbc:mysql://localhost:3306/";
+            String user = "";
+            String pwd = "";
 
             con = DriverManager.getConnection(url, user, pwd);
             log.info("DB와 정상적으로 연결되었습니다.");
