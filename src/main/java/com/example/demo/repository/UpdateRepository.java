@@ -1,15 +1,18 @@
 package com.example.demo.repository;
 
 import com.example.demo.model.Password;
+
 import lombok.extern.slf4j.Slf4j;
 
 import java.sql.*;
 import java.util.ArrayList;
 
+
 @Slf4j
 public class UpdateRepository {
 
     Password pw = new Password();
+
 
     public boolean update(ArrayList<String> queries){
         boolean ret = true;
@@ -20,9 +23,9 @@ public class UpdateRepository {
         try {
 
             // 접속 url과 사용자, 비밀번호
-            String url = "jdbc:mysql://localhost:3306/여기에db이름을 입력해주세요?serverTimezone=UTC";
-            String user = "여기에 user를 입력해주세요.";
-            String pwd ="여기에 pwd를 입력해주세요.";
+            String url = "jdbc:mysql://localhost:3306/";
+            String user = "";
+            String pwd = "";
 
             con = DriverManager.getConnection(url, user, pwd);
             log.info("DB와 정상적으로 연결되었습니다.");

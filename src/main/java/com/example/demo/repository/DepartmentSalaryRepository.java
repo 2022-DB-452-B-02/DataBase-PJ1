@@ -7,37 +7,35 @@ import java.sql.*;
 import java.util.ArrayList;
 
 @Slf4j
-public class DeleteRepository {
+public class DepartmentSalaryRepository {
     Password pw = new Password();
 
-    public void delete(ArrayList<String> queries){
-
+    public boolean changedepartmentSal(String query){
         Connection con = null;
         PreparedStatement pstmt = null;
+        boolean ret = true;
 
-        // 연결
         try {
+
             // 접속 url과 사용자, 비밀번호
             String url = "jdbc:mysql://localhost:3306/";
             String user = "";
-            String pwd = "";
+            String pwd ="";
 
             con = DriverManager.getConnection(url, user, pwd);
             log.info("DB와 정상적으로 연결되었습니다.");
 
-            for(String query : queries) {
-                String sql = query;
-                log.info("delete sql : " + sql);
+            String sql = query;
+            log.info("update department salary sql : " + sql);
 
-                pstmt = con.prepareStatement(sql);
-
-                pstmt.executeUpdate();
-            }
+            pstmt = con.prepareStatement(sql);
+            pstmt.executeUpdate();
 
         } catch (
                 SQLException e){
             System.err.println("연결할 수 없습니다.");
             e.printStackTrace();
+            ret = false; // insert가 정상 작동하지 않았음을 알려줌
         }
 
         // 해제
@@ -48,5 +46,8 @@ public class DeleteRepository {
         } catch (SQLException e){
             e.printStackTrace();
         }
+
+        return ret;
     }
+
 }
